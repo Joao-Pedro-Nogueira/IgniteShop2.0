@@ -13,6 +13,13 @@ export const CartContent = styled(Dialog.Content, {
   boxShadow: '-4px 0px 30px rgba(0, 0, 0, 0.8)',
   display: 'flex',
   flexDirection: 'column',
+
+  h2: {
+    fontWeight: 700,
+    fontSize: '$lg',
+    color: '$gray100',
+    marginBottom: '2rem',
+  },
 })
 
 export const CartClose = styled(Dialog.Close, {
@@ -22,4 +29,107 @@ export const CartClose = styled(Dialog.Close, {
   position: 'absolute',
   top: '1.75rem',
   right: '1.75rem',
+})
+
+export const CartProduct = styled('div', {
+  width: '100%',
+  display: 'flex',
+  gap: '1.25rem',
+  alignItems: 'center',
+  height: '5.125rem',
+})
+
+export const CartProductImage = styled('div', {
+  height: '5.8125rem',
+  width: '6.3125rem',
+  background: 'linear-gradient(180deg, #1ea483 0%, #7465d4 100%)',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  borderRadius: 8,
+
+  img: {
+    objectFit: 'cover',
+  },
+})
+
+export const CartProductDetails = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  height: '100%',
+  width: '100%',
+  alignItems: 'flex-start',
+  justifyContent: 'center',
+
+  p: {
+    color: '$gray300',
+    fontSize: '$md',
+  },
+
+  strong: {
+    marginTop: 4,
+    fontSize: '$md',
+    fontWeight: 700,
+  },
+
+  button: {
+    marginTop: 'auto',
+    width: 'max-content',
+    background: 'none',
+    color: '$green500',
+    fontSize: '1rem',
+    fontWeight: 700,
+    border: 'none'
+  },
+})
+
+export const CartFinalization = styled('section', {
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  width: '100%',
+  marginTop: 'auto',
+  gap: '0.25rem',
+
+  div: {
+    width: '100%',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+
+  span: {
+    color: '$gray300',
+    fontSize: '1rem',
+  },
+
+  p: {
+    color: '$gray100',
+    fontSize: '$md',
+    fontWeight: 700, 
+  },
+
+  strong: {
+    color: '$gray100',
+    fontSize: '$xl',
+    fontWeight: 700, 
+  },
+
+  button: {
+    width: '100%',
+    padding: '1.25rem 2rem',
+    backgroundColor: '$green500',
+    border: 'none',
+    borderRadius: 8,
+    color: '$white',
+    fontSize: '1.125rem',
+    fontWeight: 700, 
+    transition: '0.15s',
+    marginTop: '3.375rem',
+
+    '&:hover': {
+      backgroundColor: '$green300',
+    }
+  },
 })
