@@ -7,18 +7,54 @@ export const CartButtonContainer = styled('button', {
   border: 'none',
   borderRadius: 6,
   position: 'relative',
-  width: '3.5rem',
-  height: '3.5rem',
 
   '$:disabled': {
     opacity: 0.8,
     cursor: 'not-allowed',
   },
 
-  backgroundColor: '$gray800',
-  color: '$gray500',
 
-  svg: {
-    fontSize: 24,
+  variants: {
+    color: {
+      green: {
+        backgroundColor: '$green500',
+        color: '$white',
+
+        '&:not(:disabled):hover': {
+          backgroundColor: '$green300',
+        },
+      },
+      gray: {
+        backgroundColor: '$gray800',
+        color: '$gray500',
+
+        '&:not(:disabled):hover': {
+          backgroundColor: '$gray700',
+        },
+      }
+    },
+    size: {
+      medium: {
+        width: '3rem',
+        height: '3rem',
+        
+        svg: {
+          fontSize: 24,
+        },
+      },
+      large: {
+        width: '3.5rem',
+        height: '3.5rem',
+        
+        svg: {
+          fontSize: 32,
+        },
+      },
+    },
+  },
+
+  defaultVariants: {
+    color: 'gray',
+    size: 'medium',
   }
 })

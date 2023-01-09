@@ -20,6 +20,14 @@ export const CartContent = styled(Dialog.Content, {
     color: '$gray100',
     marginBottom: '2rem',
   },
+
+  section: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '1.5rem',
+    flex: 1,
+    overflowY: 'auto',
+  }
 })
 
 export const CartClose = styled(Dialog.Close, {
@@ -36,7 +44,7 @@ export const CartProduct = styled('div', {
   display: 'flex',
   gap: '1.25rem',
   alignItems: 'center',
-  height: '5.125rem',
+  height: '5.8125rem',
 })
 
 export const CartProductImage = styled('div', {
@@ -83,7 +91,7 @@ export const CartProductDetails = styled('div', {
   },
 })
 
-export const CartFinalization = styled('section', {
+export const CartFinalization = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
@@ -123,13 +131,18 @@ export const CartFinalization = styled('section', {
     border: 'none',
     borderRadius: 8,
     color: '$white',
-    fontSize: '1.125rem',
+    fontSize: '$md',
     fontWeight: 700, 
     transition: '0.15s',
     marginTop: '3.375rem',
 
-    '&:hover': {
+    '&:not(:disabled):hover': {
       backgroundColor: '$green300',
-    }
+    },
+
+    '&:disabled': {
+      opacity: 0.6,
+      cursor: 'not-alowed',
+    },
   },
 })
