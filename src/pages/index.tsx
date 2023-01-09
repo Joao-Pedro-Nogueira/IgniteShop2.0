@@ -55,7 +55,7 @@ export default function Home({ products }: HomeProps) {
                         <CartButton 
                           color='green' 
                           size='large' 
-                          
+                          disabled={checkIfItemAlreadyExistsInCart(product)!}
                           onClick={(e) => handleAddToCart(e, product)} 
                         />
                       </footer>
