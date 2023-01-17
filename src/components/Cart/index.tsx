@@ -1,7 +1,8 @@
 import * as Dialog from '@radix-ui/react-dialog'
+import axios from 'axios';
 import Image from 'next/image';
 import { X } from 'phosphor-react';
-import { MouseEvent } from 'react';
+import { MouseEvent, useState } from 'react';
 import { TheProduct } from '../../contexts/CartContext';
 import { useCart } from '../../hooks/useCart';
 import { CartButton } from "../CartButton";
@@ -16,9 +17,29 @@ export function Cart() {
     currency: 'BRL',
   }).format(cartTotal)
 
+  const [isCreatingCheckoutSession, setIsCreatingCheckoutSession] = useState(false)
+
   function handleRemoveCartItem(e: MouseEvent<HTMLButtonElement>, product: TheProduct) {
     e.preventDefault()
     removeCartItem(product)
+  }
+
+  async function handleCheckout() {
+    try {
+      setIsCreatingCheckoutSession(true)
+
+      const response = await axios.post('/api/checkout', {
+        products: cartItems
+      })
+
+      const { checkoutUrl }  = response.data
+
+      window.location.href= checkoutUrl
+
+    } catch (err) {
+      alert('Falha ao redirecionar ao checkout')
+      setIsCreatingCheckoutSession(false)
+    }
   }
 
   return(
@@ -65,7 +86,7 @@ export function Cart() {
               <p>Valor total</p>
               <strong>{formattedCartTotal}</strong>
             </div>
-            <button>Finalizar compra</button>
+            <button onClick={handleCheckout} disabled={isCreatingCheckoutSession || cartQuantity <= 0}>Finalizar compra</button>
           </CartFinalization>
         </CartContent>
       </Dialog.Portal>
